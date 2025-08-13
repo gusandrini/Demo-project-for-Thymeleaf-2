@@ -30,6 +30,6 @@ public class LivroController {
 
         model.addAttribute("listaLivros", livros);
 
-        return "livroLista"; // nome do template HTML em src/main/resources/templates
+        return "livroLista";
     }
 }
