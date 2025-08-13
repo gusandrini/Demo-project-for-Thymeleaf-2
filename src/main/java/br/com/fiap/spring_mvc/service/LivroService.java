@@ -5,30 +5,40 @@ import br.com.fiap.spring_mvc.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class LivroService {
 
     private final LivroRepository livroRepository;
 
     @Autowired
-    public LivroService(LivroRepository livroRepository){
-
+    public LivroService(LivroRepository livroRepository) {
+        this.livroRepository = livroRepository;
     }
-    //CRUD
-    public Livro createLivro(Livro livro){
+
+    // CREATE
+    public Livro createLivro(Livro livro) {
         return livroRepository.save(livro);
     }
 
-    public Livro readLivro(longId){
+    // READ por ID
+    public Livro readLivro(Long id) {
         return livroRepository.findById(id).orElse(null);
     }
 
-    public Livro updateLivro(Livro livro){
+    // READ listar todos
+    public List<Livro> listLivros() {
+        return livroRepository.findAll();
+    }
+
+    // UPDATE
+    public Livro updateLivro(Livro livro) {
         return livroRepository.save(livro);
     }
 
-    public void deleteLivro(Long id){
+    // DELETE
+    public void deleteLivro(Long id) {
         livroRepository.deleteById(id);
     }
-
 }
