@@ -17,6 +17,13 @@
           <th>Ações</th>
         </tr>
       </thead>
+      <tbody>
+      <tr th:each="livro: ${listaLivros}">
+        <td th:text="${livro.id}"></td>
+        <td th:text="${livro.titulo}"></td>
+        <td>Ver Detalhes</td>
+      </tr>
+      </tbody>
     </table>
   </div>
 
