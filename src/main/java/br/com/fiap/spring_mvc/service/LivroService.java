@@ -1,5 +1,4 @@
-package br.com.fiap.spring_mvc.service;
-
+import br.com.fiap.spring_mvc.controller.LivroController;
 import br.com.fiap.spring_mvc.entity.Livro;
 import br.com.fiap.spring_mvc.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import java.util.List;
 
 @Service
 public class LivroService {
-
     private final LivroRepository livroRepository;
 
     @Autowired
@@ -17,27 +15,23 @@ public class LivroService {
         this.livroRepository = livroRepository;
     }
 
-    // CREATE
-    public Livro createLivro(Livro livro) {
+    // CRUD -> Create, Read, Update, Delete
+    public LivroController createLivro(Livro livro) {
         return livroRepository.save(livro);
     }
 
-    // READ por ID
     public Livro readLivro(Long id) {
         return livroRepository.findById(id).orElse(null);
     }
 
-    // READ listar todos
-    public List<Livro> listLivros() {
+    public List<Livro> readLivros() {
         return livroRepository.findAll();
     }
 
-    // UPDATE
     public Livro updateLivro(Livro livro) {
         return livroRepository.save(livro);
     }
 
-    // DELETE
     public void deleteLivro(Long id) {
         livroRepository.deleteById(id);
     }
