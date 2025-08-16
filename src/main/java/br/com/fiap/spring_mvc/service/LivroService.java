@@ -1,4 +1,5 @@
-import br.com.fiap.spring_mvc.controller.LivroController;
+package br.com.fiap.spring_mvc.service;
+
 import br.com.fiap.spring_mvc.entity.Livro;
 import br.com.fiap.spring_mvc.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ public class LivroService {
     }
 
     // CRUD -> Create, Read, Update, Delete
-    public LivroController createLivro(Livro livro) {
+    public Livro createLivro(Livro livro) {
         return livroRepository.save(livro);
     }
 
