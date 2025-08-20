@@ -2,9 +2,11 @@ package br.com.fiap.spring_mvc.controller;
 
 import br.com.fiap.spring_mvc.entity.Livro;
 import br.com.fiap.spring_mvc.service.LivroService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,9 +34,14 @@ public class LivroController {
         return "livroCadastro";
     }
     @PostMapping("/cadastrar")
-    public String cadastrarLivro(Livro livro, Model model){
+    public String cadastrarLivro(@Valid Livro livro, Model model, BindingResult result){
+        if(result.hasErrors()){
+            return "livroCadastro";
+        }
         livroService.createLivro(livro);
         return listarLivros(model);
     }
+
+
 
 }

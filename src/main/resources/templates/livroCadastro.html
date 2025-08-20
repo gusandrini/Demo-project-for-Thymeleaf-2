@@ -12,9 +12,11 @@
         <br>
         <div>
           <label for="titulo">Título:</label> <input type="text" id="titulo" th:field="*{titulo}">
+          <p th:if="${fields.hasErrors('titulo')}" th:errors="*{titulo}"></p>
         </div>
         <div>
           <label for="autor">Autor:</label> <input type="text" id="autor" th:field="*{autor}">
+          <p th:if="${fields.hasErrors('autor')}" th:errors="*{autor}"></p>
         </div>
         <div>
           <label for="categoria">Categoria</label>
@@ -31,15 +33,19 @@
         </div>
         <div>
           <label for="editora">Editora:</label> <input type="text" id="editora" th:field="*{editora}">
+          <p th:if="${fields.hasErrors('editora')}" th:errors="*{editora}"></p>
         </div>
         <div>
           <label for="preco">Preço:</label> <input type="text" id="preco" th:field="*{preco}">
+          <p th:if="${fields.hasErrors('preco')}" th:errors="*{preco}"></p>
         </div>
         <div>
           <label for="isbn">Isbn:</label> <input type="text" id="isbn" th:field="*{isbn}">
+          <p th:if="${fields.hasErrors('isbn')}" th:errors="*{isbn}"></p>
         </div>
         <div>
           <label for="dataPublicacao">Data de publicação:</label> <input type="date" id="dataPublicacao" th:field="*{dataPublicacao}">
+          <p th:if="${fields.hasErrors('dataPublicacao')}" th:errors="*{dataPublicacao}"></p>
         </div>
       </form>
     </div>
