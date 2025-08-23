@@ -1,6 +1,5 @@
 package br.com.fiap.spring_mvc.entity;
 
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 
@@ -18,12 +17,12 @@ public class Livro {
     private String autor;
     @Enumerated(EnumType.STRING)
     @NotNull(message = "A categoria é obrigatória")
-    private Categoria catgoria;
+    private Categoria categoria;
     private String editora;
-    @DecimalMin(value = "0.99", message = "O preço deve ser no minimo 0.99")
+    @DecimalMin(value = "0.99", message = "O preço deve ser no mínimo 0.99")
     private BigDecimal preco;
     @Pattern(regexp = "^970\\d{7}$|^970\\d{10}$",
-        message = "ISBN fora do padrão")
+            message = "ISBN fora do padrão")
     private String isbn;
     private LocalDate dataPublicacao;
 
@@ -51,12 +50,12 @@ public class Livro {
         this.autor = autor;
     }
 
-    public Categoria getCatgoria() {
-        return catgoria;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setCatgoria(Categoria catgoria) {
-        this.catgoria = catgoria;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
     public String getEditora() {
